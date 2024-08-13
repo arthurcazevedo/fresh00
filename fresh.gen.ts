@@ -6,8 +6,11 @@ import * as $Countdown from "./routes/Countdown.tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $about from "./routes/about.tsx";
+import * as $api_db from "./routes/api/db.ts";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $api_random_uuid from "./routes/api/random-uuid.ts";
+import * as $api_users_id_ from "./routes/api/users/[id].ts";
+import * as $api_users_index from "./routes/api/users/index.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $search from "./routes/search.tsx";
@@ -21,8 +24,11 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/about.tsx": $about,
+    "./routes/api/db.ts": $api_db,
     "./routes/api/joke.ts": $api_joke,
     "./routes/api/random-uuid.ts": $api_random_uuid,
+    "./routes/api/users/[id].ts": $api_users_id_,
+    "./routes/api/users/index.ts": $api_users_index,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
     "./routes/search.tsx": $search,
