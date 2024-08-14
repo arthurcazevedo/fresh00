@@ -2,7 +2,6 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $Countdown from "./routes/Countdown.tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $about from "./routes/about.tsx";
@@ -14,13 +13,11 @@ import * as $api_users_index from "./routes/api/users/index.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $search from "./routes/search.tsx";
-import * as $Countdown_1 from "./islands/Countdown.tsx";
-import * as $Counter from "./islands/Counter.tsx";
+
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/Countdown.tsx": $Countdown,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/about.tsx": $about,
@@ -33,10 +30,7 @@ const manifest = {
     "./routes/index.tsx": $index,
     "./routes/search.tsx": $search,
   },
-  islands: {
-    "./islands/Countdown.tsx": $Countdown_1,
-    "./islands/Counter.tsx": $Counter,
-  },
+  islands: {},
   baseUrl: import.meta.url,
 } satisfies Manifest;
 
