@@ -1,4 +1,4 @@
-import MontaForm from "../components/montaForm.tsx";
+import MontaForm from "../components/MontaForm.tsx";
 
 
 export default function Home() {
