@@ -9,7 +9,7 @@ interface Props {
 export const handler: Handlers<Props> = {
     async GET(_req:Request, _ctx:FreshContext) {
       const form = await _req.formData();
-      const perfil = (await fetch("http://localhost:8000/api/db/" + form.get('id')?.toString())).body?.getReader().read() as unknown as aCampos;
+      const perfil = (await fetch("http://localhost:8000/api/db/" + form.get('id')?.toString() || "2")).body?.getReader().read() as unknown as aCampos;
       if (!perfil) {
         return _ctx.renderNotFound({
           message: "Perfil não encontrado",
@@ -17,24 +17,24 @@ export const handler: Handlers<Props> = {
       }
       console.debug(`Perfil: ${perfil}`)
 
-      return _ctx.render({perfil});
+      return _ctx.render({ perfil});
     },
   };
   
-export default function MontaForm(props: PageProps<Props>) {
-    const { data } = props;
-    if (!data) {
-        return "";
-    }
+export default function MontaForm({data}: PageProps<Props>) {
+    const { perfil } = data;
+    //if (!data) {
+    //    return "";
+    //}
     let form = '<form>';
-    props.data.perfil.forEach((campos:aCampo) => {
+    console.debug(`data: ${perfil}`)
+    data.perfil.forEach((campos:aCampo) => {
       campos.forEach((campo:tCampo) => {
         form += `<label for="${campo.name}">${campo.name}: </label>\n`;
         form += `<input type="${campo.type}" id="${campo.name}" name="${campo.name}" size=${campo.size} value="${campo.value}"/>`;
       });
     });
     form += '<div hx-post="/updatePerson" >Atualizar</div></form>';
-console.debug(`Form: ${form}`)
     return (
         <>
           <form  hx-target="#perfil" >

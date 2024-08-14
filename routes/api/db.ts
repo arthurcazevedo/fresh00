@@ -1,9 +1,10 @@
 import { FreshContext, RouteConfig } from "$fresh/server.ts";
 import { ResultSet, createClient } from "@libsql/client";
+import { Handlers } from "$fresh/server.ts";
 import "jsr:@std/dotenv/load";
 
-export const handler: Handlers<User | null> = {
-    async GET(req:Request, _ctx:FreshContext) {
+export const handler: Handlers = {
+    async GET(_req:Request, _ctx:FreshContext) {
         try {
             const params = _ctx.url.searchParams;
             const perfis = await client.execute({sql: "SELECT * FROM person where id in (?)",
@@ -12,7 +13,7 @@ export const handler: Handlers<User | null> = {
             const chaves = await client.execute({sql: "SELECT name FROM pragma_table_info(?) where pk=1",
               args: ["person"]
             });
-            let perfil = (getJSON(perfis,chaves) as aCampos);
+            //let perfil = (getJSON(perfis,chaves) as aCampos);
             //console.debug(`Campos: `,...x)
             //res.send(montaForm(perfil));
             return new Response(JSON.stringify(getJSON(perfis,chaves)),{headers: [["Content-type","Application/json"]]});
