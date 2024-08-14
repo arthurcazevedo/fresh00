@@ -32,8 +32,8 @@ export const config: RouteConfig = {
 
 
 const client = createClient({
-    url: Deno.env.get("TURSO_DATABASE_URL") || "",
-    authToken: Deno.env.get("TURSO_AUTH_TOKEN"),
+    url: "https://casoftapp-arthurcazevedo.turso.io",
+    authToken: "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3MTg5OTA0MDAsImlkIjoiYWRiMjUwNjEtNDY5Yi00YTk2LWEzMmItMTk3NDNjMDZhN2Y3In0.sr6RKmHPHaIah8ZND2Q0VMeCCrpdU5jKcdv62AigU_dzSs39o64Apq6IuUO31dthF_YxQaWTi48H20r2OMpHDg",
   });
   
 export type tCampo = {name:string,type:string,size:number,value:string};
