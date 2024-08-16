@@ -2,6 +2,7 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $DoArthur_index from "./routes/DoArthur/index.tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $about from "./routes/about.tsx";
@@ -10,14 +11,18 @@ import * as $api_joke from "./routes/api/joke.ts";
 import * as $api_random_uuid from "./routes/api/random-uuid.ts";
 import * as $api_users_id_ from "./routes/api/users/[id].ts";
 import * as $api_users_index from "./routes/api/users/index.ts";
+import * as $create from "./routes/create.tsx";
+import * as $employee_id_ from "./routes/employee/[id].tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $search from "./routes/search.tsx";
-
+import * as $update_id_ from "./routes/update/[id].tsx";
+import * as $FetchdataIsland from "./islands/FetchdataIsland.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
+    "./routes/DoArthur/index.tsx": $DoArthur_index,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/about.tsx": $about,
@@ -26,11 +31,16 @@ const manifest = {
     "./routes/api/random-uuid.ts": $api_random_uuid,
     "./routes/api/users/[id].ts": $api_users_id_,
     "./routes/api/users/index.ts": $api_users_index,
+    "./routes/create.tsx": $create,
+    "./routes/employee/[id].tsx": $employee_id_,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
     "./routes/search.tsx": $search,
+    "./routes/update/[id].tsx": $update_id_,
   },
-  islands: {},
+  islands: {
+    "./islands/FetchdataIsland.tsx": $FetchdataIsland,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 

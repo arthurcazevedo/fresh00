@@ -21,14 +21,14 @@ export const handler: Handlers<Props> = {
     },
   };
   
-export default function MontaForm({data}: PageProps<Props>) {
-    const { perfil } = data;
-    //if (!data) {
-    //    return "";
-    //}
+export default function MontaForm({perfil}: Props) {
+    //const { perfil } = data;
+    if (!perfil) {
+        return "";
+    }
     let form = '<form>';
     console.debug(`data: ${perfil}`)
-    data.perfil.forEach((campos:aCampo) => {
+    perfil.forEach((campos:aCampo) => {
       campos.forEach((campo:tCampo) => {
         form += `<label for="${campo.name}">${campo.name}: </label>\n`;
         form += `<input type="${campo.type}" id="${campo.name}" name="${campo.name}" size=${campo.size} value="${campo.value}"/>`;
