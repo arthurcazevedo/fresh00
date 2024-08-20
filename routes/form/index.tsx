@@ -13,8 +13,8 @@ export const handler: Handlers<Props> = {
       const form = await _req.formData();
       const id = form.get("id")?.toString();
       console.debug(`handler id: ${id}`)
-      const perfil = (await fetch("https://jsapi-mauve.vercel.app/db/" + id)).;
-      if (!perfil.json()) {
+      const perfil = await fetch("https://jsapi-mauve.vercel.app/db/" + id);
+      if (!perfil) {
         return _ctx.renderNotFound({
           message: "Perfil não encontrado",
         });
