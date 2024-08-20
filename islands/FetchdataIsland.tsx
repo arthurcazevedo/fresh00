@@ -3,6 +3,7 @@ import "preact/debug";
 
 import { h } from "preact";
 import { signal } from "@preact/signals";
+import { load } from "$std/dotenv/mod.ts";
 
 interface DataItem {
   id: number;
@@ -11,7 +12,7 @@ interface DataItem {
 }
 
 export default function FetchDataIsland() {
-  const id = signal<string | number>(22222);
+  const id = signal<string | number>(0);
   const data = signal<DataItem | null>(null);
   const loading = signal(false);
   const error = signal<string | null>(null);
@@ -43,7 +44,7 @@ export default function FetchDataIsland() {
       loading.value = false;
     }
   };
-  console.log("Island/FetchDataIsland() 2");
+  console.log("Island/FetchDataIsland() 2", id.value, loading.value,data.value);
 
   return (
     <div>
@@ -53,10 +54,10 @@ export default function FetchDataIsland() {
         id="id"
         type="number"
         placeholder="Enter ID"
-        value={id.value}
-        onInput={(e) => id.value = (e.target as HTMLInputElement).value}
+        //value={Number(id.value)}
+        onInput={(e) => id.value = Number((e.target as HTMLInputElement).value)}
       />
-      <button type="submit" onClick={handleFetch} disabled={loading.value}>Fetch Data</button>
+      <button type="submit" onClick={handleFetch} >Fetch Data</button>
       {loading.value && <p>Loading...</p>}
       {error.value && <p style={{ color: "red" }}>{error.value}</p>}
       {data.value && (

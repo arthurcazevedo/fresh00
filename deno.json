@@ -18,7 +18,11 @@
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
     "$std/": "https://deno.land/std@0.216.0/",
-    "@libsql/client":"https://esm.sh/@libsql/client@0.9.0/web"
+    "@libsql/client": "https://esm.sh/@libsql/client@0.9.0/web",
+    "tailwindcss": "npm:tailwindcss@3.4.10",
+    "tailwindcss/": "npm:/tailwindcss@3.4.10/",
+    "tailwindcss/plugin": "npm:/tailwindcss@3.4.10/plugin.js"
+    
   },
   "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" }
 }

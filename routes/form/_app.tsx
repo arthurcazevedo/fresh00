@@ -9,7 +9,7 @@ export default function App({ Component }: PageProps) {
         <link rel="stylesheet" href="/styles.css" />
         <script src="htmx.min.js"></script>
         </head>
-      <body class="bg-black">
+      <body>
         <Component />
       </body>
     </html>

@@ -13,6 +13,8 @@ import * as $api_users_id_ from "./routes/api/users/[id].ts";
 import * as $api_users_index from "./routes/api/users/index.ts";
 import * as $create from "./routes/create.tsx";
 import * as $employee_id_ from "./routes/employee/[id].tsx";
+import * as $form_app from "./routes/form/_app.tsx";
+import * as $form_index from "./routes/form/index.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $search from "./routes/search.tsx";
@@ -33,6 +35,8 @@ const manifest = {
     "./routes/api/users/index.ts": $api_users_index,
     "./routes/create.tsx": $create,
     "./routes/employee/[id].tsx": $employee_id_,
+    "./routes/form/_app.tsx": $form_app,
+    "./routes/form/index.tsx": $form_index,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
     "./routes/search.tsx": $search,
